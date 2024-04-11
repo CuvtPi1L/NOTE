@@ -1,3 +1,7 @@
+# Image
+Read only templates
+
+
 possible structure:
 .
 ├── Dockerfile
@@ -50,12 +54,15 @@ Specifies a command to run when the container starts. Starts the server process.
 
 ## Build the image
  docker build --tag=buildme .
+ -t is --tag=
+ . is for the dir you are in
 
 ## Run the container
  docker run --name=buildme --rm --detach buildme
  Run a container from the image in detached mode.
  This starts a container named buildme.
 
+ docker run buildname
 
   docker exec -it buildme /bin/client
 	Run a new command in the buildme container that invokes the client binary.
@@ -63,7 +70,8 @@ The docker exec command opens a terminal user interface
 
 When you're done testing, you can stop the container:
 	"""bin because of the docker container sructure"""
-
+### Flags
+docker run --name <container name:webapp> -d<detached> -p<port> 9000:8000 <image:niginx:1.23>
 
 
 
