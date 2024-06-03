@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="vue.js"></script>
+  <title>Hwformy fucking class</title>
+</head>
+<body>
+  <div  id="app">
+    <input v-model='inputValue' type="text"> 
+    <button v-on:click="handleBtnClick">Submit</button>
+    <ul>
+      <!-- <li v-for="item in list">
+        <div >
+          <button v-on:click="deleteTask" > done </button>
+          <span>{{item}}</span>
+        </div>
+      </li> -->
+      <todo-item v-for="item in list"></todo-item>
+    </ul>
+    </div>
+</body>
+<script>
+  Vue.component("TodoItem",{
+    template:"<li>todo item</li>"
+  })
+
+  var app = new Vue({
+    el: '#app',
+    data: {
+      list: ["what is going on","i'm a dog","what is going on","i'm a dog"],
+      inputValue: ""
+    },
+    methods:{
+      handleBtnClick: function(){
+        console.log("handleBtnClick", inputValue)
+        var inputValue
+        this.list.push(this.inputValue)
+        this.inputValue = ""
+      },
+      deleteTask: function(){
+        console.log("byebye", )
+      }
+    }
+  })
+</script>
+</html>

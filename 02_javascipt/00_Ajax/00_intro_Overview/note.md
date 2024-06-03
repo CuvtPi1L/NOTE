@@ -20,3 +20,6 @@ Ajax跨域操作
   link
   Ajax
 -< http response:
+
+
+http
