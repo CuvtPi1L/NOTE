@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <input v-model="inputValue" type="text">
+    <button v-on:click="addEventBtn">Submit</button>
+    <todo-list v-for="(item,index) in list" 
+              v-bind:index="index"
+               v-bind:content="item"
+               @delete="handelItemDelete">
+    </todo-list>
+  </div>
+</body>
+<script>
+  // Vue.component("TodoList",{
+  //   props:["content"],
+  //   template:'<li>{{content}}<li>'
+  // })
+  
+  var TodoList = {
+    props: ['content',"index"],
+    template: '<li @click="handelItemDelete">{{content}}<li>',
+    methods:{
+      handelItemDelete: function(){
+        this.$emit("delete",this.index)
+        // console.log("this is the button function")
+        // this.list.push(this.inputValue)
+        // this.inputValue = ""
+      }
+    }
+  }
+  
+  var app = new Vue({
+    el: "#app",
+    data: {
+      list:["hello","what is up"],
+    },
+    methods: {
+      addEventBtn: function(){
+        console.log("this is the button function")
+        this.list.push(this.inputValue)
+        this.inputValue = ""
+      },
+      handelItemDelete: function(index){
+        this.list.splice(index,1)
+      }
+    },
+    components:{
+      TodoList: TodoList
+    }
+    
+  })
+</script>
+</html>

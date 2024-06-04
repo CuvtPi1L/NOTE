@@ -19,7 +19,7 @@ methods:{
 methods in vue object init
 
 
-#v-model 
+# v-model 
 connect Vue object data with dom elements
 <input type='text' v-model='inputValue'>
 ...

@@ -17,17 +17,28 @@
           <span>{{item}}</span>
         </div>
       </li> -->
-      <todo-item v-for="item in list"></todo-item>
+      <todo-item v-bind:content="item" 
+                  v-for="item in list">
+      </todo-item>
     </ul>
     </div>
 </body>
 <script>
-  Vue.component("TodoItem",{
-    template:"<li>todo item</li>"
-  })
+  // Vue.component("TodoItem",{
+  //   props:['content'],
+  //   template:"<li>{{content}}</li>"
+  // })
+
+  var TodoItem = {
+    props: ['content'],
+    template:"<li>{{content}}<li>"
+  }
 
   var app = new Vue({
     el: '#app',
+    components: {
+      TodoItem: TodoItem
+    },
     data: {
       list: ["what is going on","i'm a dog","what is going on","i'm a dog"],
       inputValue: ""
