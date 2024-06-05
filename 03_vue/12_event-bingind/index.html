@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <button  @click="handleClick($event)">
+      what's up
+    </button>
+  </div>
+<script>
+  var vm = new Vue({
+    el: "#app",
+    methods: function(e, one, two , three){
+      console.log(1, 2, 3, )
+    }
+
+  })
+
+</script>
+</body>
+</html>
